@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        applicationId "de.syss.MifareClassicTool"
+        minSdkVersion 12
+        targetSdkVersion 23
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+        uat {
+            buildConfigField "boolean", "IsUat", "true"
+        }
+        prod {
+            buildConfigField "boolean", "IsUat", "false"
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:23.+'
+}
